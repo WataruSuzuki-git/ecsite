@@ -1,4 +1,4 @@
-package jp.co.internous.ecsite.contoroller;
+package jp.co.internous.ecsite.controller;
 
 
 import java.util.List;
@@ -58,7 +58,7 @@ public class AdminController {
 		return "welcome";
 	}
 	
-	@PostMapping("goodsMst")
+	@PostMapping("/goodsMst")
 	public String goodsMst(LoginForm f,Model m) {
 		m.addAttribute("userName", f.getUserName());
 		m.addAttribute("password", f.getPassword());

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", event => {
       if ( !isOk ){return;}
       
       //event.target(削除ボタン)の親要素のさらに親要素から、”td”要素をすべて抽出しtdList　に格納する
-      const tdList = event.target.parrentElement.parmentElement.querySelectorAll("td");
+      const tdList = event.target.parentElement.parentElement.querySelectorAll("td");
       // deleteGoods 関数を呼び出し、諸品情報を削除する
       deleteGoods(tdList);
     });
@@ -34,7 +34,7 @@ function deleteGoods(tdList){
    *  ERROR時(catch)：エラー情報を　console に出力する */
    fetch("/ecsite/admin/api/deleteGoods", {
      method: "POST",
-     headers: {'Content-type': "application/json"},
+     headers: {'Content-Type': "application/json"},
      body: JSON.stringify(postObj),
    })
    .then(response => response.text())
@@ -63,7 +63,7 @@ function deleteGoods(tdList){
       <tr th:each="item: ${goods}">
         <td th:text="${item.id}"/>
         <td th:text="${item.goodsName}"/>
-        <td th:text="${item.price}"}/>
+        <td th:text="${item.price}"/>
         <td><button type="submit" class="deleteBtn">削除</button></td>
       </tr>
     </tbody>
